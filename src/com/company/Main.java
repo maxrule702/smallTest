@@ -8,18 +8,57 @@ public class Main {
 
 
 
-
     public static void main(String[] args) {
-	Scanner input  = new Scanner(System.in);
-        System.out.println("please enter your name");
- //   String user = input.nextLine();
-     String [] cars = {"hello"};
-        System.out.println(cars[0]);
-        ArrayList brands = new ArrayList();
-        brands.add("ferrari");
-        brands.add("alpha");
-        brands.sort(Comparator.naturalOrder());
-        System.out.println(brands);
+
+
+Person p2=new Student("max",17,"here",60,192547);
+
+        System.out.println(p2.toString());
+
+
+
 
     }
+}
+class Person{
+    public Person(String name, int age, String adress) {
+        this.name = name;
+        this.age = age;
+        this.adress = adress;
+    }
+
+    String name;
+    int age;
+    String adress;
+
+}
+class Student extends Person{
+    int marks;
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", adress='" + adress + '\'' +
+                ", marks=" + marks +
+                ", rollNumber=" + rollNumber +
+                '}';
+    }
+
+    public Student(String name, int age, String adress, int marks, int rollNumber) {
+        super(name, age, adress);
+        this.marks = marks;
+        this.rollNumber = rollNumber;
+    }
+
+    int rollNumber;
+}
+class GraduateStudent extends Student{
+    public GraduateStudent(String name, int age, String adress, int marks, int rollNumber, String graduationDate) {
+        super(name, age, adress, marks, rollNumber);
+        this.graduationDate = graduationDate;
+    }
+
+    String graduationDate;
 }
